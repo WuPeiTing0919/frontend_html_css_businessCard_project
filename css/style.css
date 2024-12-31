@@ -1,0 +1,233 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* ---------------------------------- */
+*,*:before,*:after{
+	box-sizing: border-box;
+}
+
+
+body {
+	/* 星空背景 */
+    background: linear-gradient(to bottom, #1e3c72, #2a5298);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+
+	font-family: Arial;
+}
+
+.wrap {
+    display: flex;
+    position: relative;
+	animation: fly 5s linear infinite, sway 1.5s ease-in-out infinite;
+	z-index: 1;
+}
+
+/* 火箭頭部 */
+.top_cap {
+    width: 300px;
+    height: 300px;
+    background-color: #FF4D4D;
+
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+
+    left: -150px;
+}
+
+/* 火箭身體 */
+.card {
+    width: 450px;
+    background-color: white;
+
+	padding: 35px 40px;
+	font-weight: bold;
+
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card p:first-child{
+	color: #FF6A33;
+	font-size: 22px;
+}
+
+.card p span{
+	margin-left: 10px;
+	font-size: 18px;
+}
+
+.card h1{
+	color: #333333;
+	font-size: 34px;
+	text-align: center;
+	
+	padding: 25px 0px;
+}
+
+.card ul li{
+	display: flex;
+
+	margin-bottom: 5px;
+	font-size: 16px;
+	color: #777777;
+	line-height: 1.5;
+}
+
+.card ul li img {
+	margin-right: 10px;
+}
+
+.card ul li a{
+	color: #777777;
+	text-decoration: none;
+}
+
+/* 火箭底部 */
+.line {
+    width: 50px;
+    height: 300px;
+
+    background-color: #FF6A33;
+	border-radius: 00px 20px 20px 0px;
+}
+
+/* 火箭尾翼 */
+.wing_top,
+.wing_down {
+    width: 150px;
+    height: 300px;
+    background-color: #FF4D4D;
+
+    border-radius: 150px 0 0 150px;
+
+    position: absolute;
+    z-index: 1;
+
+    right: 50px;
+}
+
+.wing_top {
+    top: -150px;
+}
+
+.wing_down {
+    bottom: -150px;
+}
+
+/* 火焰設計 */
+.flames {
+    position: absolute;
+	right: -130px;
+	top: 100px;
+	
+    z-index: 0;
+	transform: rotate(-45deg);
+}
+
+.flame {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle at 50% 20%, #FF6A33, #FF4500);
+    border-radius: 48% 53% 51% 49% / 42% 46% 0% 56%;
+    
+	position: relative;
+    animation: flicker 1s infinite alternate;
+}
+
+.flame .small {
+    width: 70px;
+    height: 70px;
+    background: radial-gradient(circle at 50% 20%, #FFD700, #FF6A33);
+	border-radius: 48% 53% 51% 49% / 42% 46% 0% 56%;
+	
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+.flame .tiny {
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle at 50% 20%, #FFFFFF, #FFD700);
+	border-radius: 48% 53% 51% 49% / 42% 46% 0% 56%;
+	
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+/* 火箭飛行 */
+@keyframes fly {
+	0%, 100% {
+		transform: translateX(0); /* 中心位置 */
+	}
+	50% {
+		transform: translateX(40px); /* 向右移動 */
+	}
+}
+
+/* 火焰閃爍效果 */
+@keyframes flicker {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1) translateX(-5px);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
